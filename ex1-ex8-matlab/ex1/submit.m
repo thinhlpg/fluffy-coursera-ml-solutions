@@ -1,5 +1,5 @@
 function submit()
-  addpath('../lib','../lib/jsonlab');
+  addpath('./lib');
 
   conf.assignmentKey = 'UkTlA-FyRRKV5ooohuwU6A';
   conf.itemName = 'Linear Regression with Multiple Variables';
@@ -43,7 +43,6 @@ function submit()
   conf.output = @output;
 
   submitWithConfiguration(conf);
-  rmpath('../lib/jsonlab', '../lib');
 end
 
 function out = output(partId)
