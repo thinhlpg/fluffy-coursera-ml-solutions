@@ -7,12 +7,12 @@ function p = predict(Theta1, Theta2, X)
 m = size(X, 1);
 num_labels = size(Theta2, 1);
 
-% You need to return the following variables correctly 
+% You need to return the following variables correctly
 p = zeros(size(X, 1), 1);
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Complete the following code to make predictions using
-%               your learned neural network. You should set p to a 
+%               your learned neural network. You should set p to a
 %               vector containing labels between 1 to num_labels.
 %
 % Hint: The max function might come in useful. In particular, the max
@@ -21,7 +21,21 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+  %p: 5000x1
+  % a1 = X: 5000x400 (need to plus 1)
+  % theta1: 25x401
+  % a2 = sigmoid(a1*theta1'): 5000x25 (need to plus 1)
+  % theta2: 10x(26 + 1)
+  % h = g(z2) = sigmoid(a2*theta2') = 5000x10
+  % [value p] = max(h, [], 2)
 
+  % Add ones to the X data matrix
+  a1 = [ones(m, 1) X];
+  a2 = sigmoid(a1*Theta1')
+  m = size(a2, 1);
+  a2 = [ones(m, 1) a2]
+  h = sigmoid(a2*Theta2')
+  [values p] = max(h, [], 2)
 
 
 

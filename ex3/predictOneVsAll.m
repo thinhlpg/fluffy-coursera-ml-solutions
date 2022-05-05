@@ -34,7 +34,7 @@ X = [ones(m, 1) X];
   %X: 5000x410
   %X*all_theta': 5000x10
 
-  [value p] = max(sigmoid(X*all_theta'),[],2)
+  [values p] = max(sigmoid(X*all_theta'),[],2)
 
 
 
